@@ -1,73 +1,3 @@
-<div align="center" markdown="1">
-  <img src="docs/assets/SG_img/SG - Horizontal Glow 2.png" width="600"/>
- <br/><br/>
-  
-**Build, train, and fine-tune production-ready deep learning  SOTA vision models**
-[![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=Easily%20train%20or%20fine-tune%20SOTA%20computer%20vision%20models%20from%20one%20training%20repository&url=https://github.com/Deci-AI/super-gradients&via=deci_ai&hashtags=AI,deeplearning,computervision,training,opensource)
-
-#### Version 3 is out! Notebooks have been updated!
-______________________________________________________________________
-</div>  
-<div align="center">
-<p align="center">
-  <a href="https://www.supergradients.com/">Website</a> •
-  <a href="https://docs.deci.ai/super-gradients/documentation/source/welcome.html">Docs</a> •
-  <a href="#getting-started">Getting Started</a> •
-  <a href="#implemented-model-architectures">Pretrained Models</a> •
-  <a href="#community">Community</a> •
-  <a href="#license">License</a> •
-  <a href="#deci-platform">Deci Platform</a>
-</p>
-<p align="center">
-  <a href="https://github.com/Deci-AI/super-gradients#prerequisites"><img src="https://img.shields.io/badge/python-3.7%20%7C%203.8%20%7C%203.9-blue" />
-  <a href="https://github.com/Deci-AI/super-gradients#prerequisites"><img src="https://img.shields.io/badge/pytorch-1.9%20%7C%201.10-blue" />
-  <a href="https://pypi.org/project/super-gradients/"><img src="https://img.shields.io/pypi/v/super-gradients" />
-  <a href="https://github.com/Deci-AI/super-gradients#computer-vision-models-pretrained-checkpoints" ><img src="https://img.shields.io/badge/pre--trained%20models-34-brightgreen" />
-  <a href="https://github.com/Deci-AI/super-gradients/releases"><img src="https://img.shields.io/github/v/release/Deci-AI/super-gradients" />
-  <a href="https://join.slack.com/t/supergradients-comm52/shared_invite/zt-10vz6o1ia-b_0W5jEPEnuHXm087K~t8Q"><img src="https://img.shields.io/badge/slack-community-blueviolet" />
-  <a href="https://github.com/Deci-AI/super-gradients/blob/master/LICENSE.md"><img src="https://img.shields.io/badge/license-Apache%202.0-blue" />
-  <a href="https://docs.deci.ai/super-gradients/documentation/source/welcome.html"><img src="https://img.shields.io/badge/docs-mkdocs-brightgreen" /></a>
-</p>    
-</div>
-
-______________________________________________________________________
-
-## Build with SuperGradients
-__________________________________________________________________________________________________________
-
-### Support various computer vision tasks
-<div align="center">
-<img src="https://github.com/Deci-AI/super-gradients/raw/master/docs/assets/SG_img/Segmentation 1500x900 .png" width="250px">
-<img src="https://github.com/Deci-AI/super-gradients/raw/master/docs/assets/SG_img/Object detection 1500X900.png" width="250px">
-<img src="https://github.com/Deci-AI/super-gradients/raw/master/docs/assets/SG_img/Classification 1500x900.png" width="250px">
-</div>
-
-
-### Ready to deploy pre-trained SOTA models
-
-YOLO-NAS architecture is out! The new YOLO-NAS delivers state-of-the-art performance with the unparalleled accuracy-speed performance, outperforming other models such as YOLOv5, YOLOv6, YOLOv7 and YOLOv8.
-Check it out here: [YOLO-NAS](YOLONAS.md).
-
-<div align="center">
-<img src="./documentation/source/images/yolo_nas_frontier.png" width="800px">
-</div>
-
-#### All Computer Vision Models - Pretrained Checkpoints can be found in the [Model Zoo](http://bit.ly/41dkt89)
-
-#### Classification
-<div align="center">
-<img src="./docs/assets/SG_img/Classification@2xDark.png" width="800px">
-</div>
-
-#### Semantic Segmentation
-<div align="center">
-<img src="./docs/assets/SG_img/Semantic Segmentation@2xDark.png" width="800px">
-</div>
-
-#### Object Detection 
-<div align="center">
-<img src="./docs/assets/SG_img/Object Detection@2xDark.png" width="800px">
-</div>
 
 
 ### Easy to train SOTA Models
@@ -186,6 +116,36 @@ python3 inference.py --data /dir/dataset/data.yaml --model yolo_nas_m --weight /
                                                                                                           --source 'rtsp://link' --conf 0.25 --save      # save RTSP video stream
 
 ```
+
+
+To run inference in headless env or if the inference.py does not works at all.
+
+you can alternatively use 
+
+##  visualise
+You can also Inference your **YOLO-NAS** model with **visualise.py**
+#### Support
+- image only
+
+<details>
+  <summary>Args</summary>
+  
+  `--data`: path to data.yaml <br>
+  `--model`: Model type (eg: `yolo_nas_s`, `yolo_nas_m`, `yolo_nas_l`) <br>
+  `--weight`: path to trained model weight <br>
+  `--image`: image path <br>
+  `--conf`: model prediction confidence (0<conf<1) <br>
+  `--save`: to save video <br>
+  
+</details>
+**NOTE:- This script will just save the annotated image and the associated .json file at a particular location.**
+**Example:**
+```
+python3 visualise.py --data /dir/dataset/data.yaml --model yolo_nas_m --weight /runs/train4/ckpt_best.pth --image /path/to/image.jpg --conf 0.66 --save         
+                                                                                                         
+
+```
+
 
 
 
