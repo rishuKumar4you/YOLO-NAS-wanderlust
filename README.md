@@ -140,12 +140,44 @@ You can also Inference your **YOLO-NAS** model with **visualise.py**
 </details>
 **NOTE:- This script will just save the annotated image and the associated .json file at a particular location.**
 **Example:**
-```
-python3 visualise.py --data /dir/dataset/data.yaml --model yolo_nas_m --weight /runs/train4/ckpt_best.pth --image /path/to/image.jpg --conf 0.66 --save         
-                                                                                                         
 
+
+``` python3 visualise.py --data /dir/dataset/data.yaml --model yolo_nas_m --weight /runs/train4/ckpt_best.pth --image /path/to/image.jpg --conf 0.66 --save  ```       
+                                                                                                       
 ```
 ```
+
+
+####### **NEW Flask api integration** ######
+
+You can also Inference your **YOLO-NAS** model with **app.py**
+
+Run the app.py script, will launch a server.
+``` python3 app.py ```
+
+Make requests using:
+```      !curl -X POST -F "file=@../create-process-flow-diagram-pid-ri-bfd-and-ufd.jpg" -F "confidence=0.3" http://127.0.0.1:8081/predict -o ../responses/response10.json ```
+
+the structure of response will be:
+```
+{
+    "json_data": {
+        "predictions": [
+            {
+                "x": 182.22,
+                "y": 172.12,
+                "width": 72.52,
+                "height": 366.56,
+                "confidence": 0.779,
+                "class": "symbol",
+                "class_id": 0,
+                "detection_id": "bd88df16-a480-460a-867d-0208b88f75cf"
+            }, ..] 
+            },
+        "labeled_image": "base64encoded_image_string"
+        }
+```
+
 
 
 
