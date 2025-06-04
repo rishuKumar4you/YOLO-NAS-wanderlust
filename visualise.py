@@ -51,7 +51,7 @@ def main():
                     help="Model type (e.g., yolo_nas_s)")
     ap.add_argument("--image", type=str, required=True,
                     help="Path to the input image")
-    ap.add_argument("--weights", type=str, default=None,
+    ap.add_argument("-w", "--weight", type=str, default=None,
                     help="Path to the trained model weights (default: COCO weights)")
     ap.add_argument("--data", type=str, required=True,
                     help="Path to data.yaml file")
@@ -81,7 +81,7 @@ def main():
     model = models.get(
         args.model,
         num_classes=len(class_names),
-        checkpoint_path=args.weights if args.weights else None
+        checkpoint_path=args.weight if args.weight else None
     )
     device = "cuda" if torch.cuda.is_available() else "cpu"
     model = model.to(device)
